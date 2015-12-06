@@ -19,7 +19,7 @@
         <property name="maxActive" value="100"/>
         <property name="maxIdle" value="30"/>
         <property name="maxWait" value="1000"/>
-    </bean> 
+    </bean>
 
 <!--     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="${mysql.driver}"/>

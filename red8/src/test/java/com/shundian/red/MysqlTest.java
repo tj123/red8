@@ -19,7 +19,7 @@ public class MysqlTest {
 	
 	@Test
 	public void insert(){
-		template.update("insert into user values('asdf','111','sdfsd','efefef')");
+		template.update("insert into user values('asdf','111','sdf阿斯顿sd','efefef')");
 	}
 	
 	@Test
