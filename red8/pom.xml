@@ -45,11 +45,11 @@
             <version>1.8.6</version>
         </dependency>
 
-        <dependency>
+        <!-- <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc14</artifactId>
             <version>10.2.0.4.0</version>
-        </dependency> 
+        </dependency>  -->
 
         <!-- redis 相关配置 -->
         <dependency>
