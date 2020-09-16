@@ -7,8 +7,8 @@ import com.shundian.red.web.pojo.UserDto;
 
 public interface RedisService {
 
-	public void add(UserDto user);
+    public void add(UserDto user);
 
-	public List<Map<String, Object>> listUser();
+    public List<Map<String, Object>> listUser();
 
 }

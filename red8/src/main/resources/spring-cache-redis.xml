@@ -5,34 +5,32 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- 下面的属性多个之间要逗号分隔 -->
-    <context:property-placeholder location="classpath:redis.properties"/>
+  <!-- 下面的属性多个之间要逗号分隔 -->
+  <context:property-placeholder location="classpath:redis.properties"/>
 
-    <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
-        <property name="maxIdle" value="${redis.maxIdle}"/>
-        <property name="maxTotal" value="${redis.maxActive}"/>
-        <property name="maxWaitMillis" value="${redis.maxWait}"/>
-        <property name="testOnBorrow" value="${redis.testOnBorrow}"/>
-    </bean>
-
-
+  <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+    <property name="maxIdle" value="${redis.maxIdle}"/>
+    <property name="maxTotal" value="${redis.maxActive}"/>
+    <property name="maxWaitMillis" value="${redis.maxWait}"/>
+    <property name="testOnBorrow" value="${redis.testOnBorrow}"/>
+  </bean>
 
 
-    <bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
-        <property name="hostName" value="${redis.hostName}"/>
-        <property name="password" value="${redis.password}"/>
-        <property name="port" value="${redis.port}"/>
-        <property name="poolConfig" ref="poolConfig"/>
-    </bean>
+  <bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+    <property name="hostName" value="${redis.hostName}"/>
+    <property name="password" value="${redis.password}"/>
+    <property name="port" value="${redis.port}"/>
+    <property name="poolConfig" ref="poolConfig"/>
+  </bean>
 
 
-    <bean id="stringSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
-    <!-- 开启事务，可以通过transcational注解控制 -->
-    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
-        <property name="connectionFactory" ref="connectionFactory"/>
-        <property name="keySerializer" ref="stringSerializer"/>
-        <property name="enableTransactionSupport" value="true"/>
-    </bean>
+  <bean id="stringSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+  <!-- 开启事务，可以通过transcational注解控制 -->
+  <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+    <property name="connectionFactory" ref="connectionFactory"/>
+    <property name="keySerializer" ref="stringSerializer"/>
+    <property name="enableTransactionSupport" value="true"/>
+  </bean>
 
 
 </beans>
