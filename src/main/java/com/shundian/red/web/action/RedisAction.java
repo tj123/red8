@@ -37,7 +37,7 @@ public class RedisAction {
 	@RequestMapping("/add")
 	@ResponseBody
 	public Result<?> add(UserDto user){
-		Result<Object> res = new Result<Object>();
+		Result<Object> res = new Result<>();
 		service.add(user);
 		return res.setData(user);
 	}
