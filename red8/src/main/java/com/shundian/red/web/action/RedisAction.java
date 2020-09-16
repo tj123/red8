@@ -12,32 +12,32 @@ import com.shundian.red.web.service.RedisService;
 @Controller
 @RequestMapping("/redis")
 public class RedisAction {
-	
+
 	@Autowired
 	private RedisService service;
-	
+
 	@RequestMapping("/test")
 	public String test(){
 		return "test";
 	}
-	
+
 	@RequestMapping("/list")
 	@ResponseBody
 	public Result<?> list(){
-		Result<Object> res = new Result<Object>();
+		Result<Object> res = new Result<>();
 		return res.setData(service.listUser());
 	}
-	
-	
+
+
 	@RequestMapping("/addi")
 	public String addInit(){
 		return "add";
 	}
-	
+
 	@RequestMapping("/add")
 	@ResponseBody
 	public Result<?> add(UserDto user){
-		Result<Object> res = new Result<Object>();
+		Result<Object> res = new Result<>();
 		service.add(user);
 		return res.setData(user);
 	}

@@ -19,20 +19,20 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 @WebAppConfiguration
 @ContextConfiguration("classpath:spring-mvc.xml")
 public class AppTest {
-	private MockMvc mockMvc;
+    private MockMvc mockMvc;
 
-	@SuppressWarnings("SpringJavaAutowiringInspection")
-	@Autowired
-	protected WebApplicationContext wac;
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    @Autowired
+    protected WebApplicationContext wac;
 
-	@Before
-	public void setup() {
-		this.mockMvc = webAppContextSetup(this.wac).build();
-	}
+    @Before
+    public void setup() {
+        this.mockMvc = webAppContextSetup(this.wac).build();
+    }
 
-	@Test
-	public void simple() throws Exception {
-		mockMvc.perform(get("/")).andExpect(status().isOk())
-				.andExpect(view().name("hello"));
-	}
+    @Test
+    public void simple() throws Exception {
+        mockMvc.perform(get("/")).andExpect(status().isOk())
+                .andExpect(view().name("hello"));
+    }
 }
