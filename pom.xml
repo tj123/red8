@@ -35,11 +35,11 @@
       <!--      <version>${spring.version}</version>-->
     </dependency>
 
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <!--      <version>2.6.3</version>-->
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--      <artifactId>jackson-databind</artifactId>-->
+<!--      &lt;!&ndash;      <version>2.6.3</version>&ndash;&gt;-->
+<!--    </dependency>-->
 
     <dependency>
       <groupId>org.springframework</groupId>
@@ -133,17 +133,12 @@
       <artifactId>spring-boot</artifactId>
     </dependency>
 
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <!--      <version>${slf4j.version}</version>-->
-      <exclusions>
-        <exclusion>
-          <artifactId>slf4j-api</artifactId>
-          <groupId>org.slf4j</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.slf4j</groupId>-->
+<!--      <artifactId>slf4j-log4j12</artifactId>-->
+<!--      &lt;!&ndash;      <version>${slf4j.version}</version>&ndash;&gt;-->
+<!--    </dependency>-->
+
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
@@ -153,6 +148,12 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.73</version>
     </dependency>
 
     <dependency>
