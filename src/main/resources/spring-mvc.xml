@@ -13,6 +13,9 @@
   <context:annotation-config/>
   <mvc:annotation-driven/>
 
+  <import resource="classpath:spring-cache-redis.xml"/>
+  <import resource="classpath:spring-db-mysql.xml"/>
+
   <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
     <property name="locations">
       <list>
@@ -26,6 +29,7 @@
     <property name="prefix" value="/WEB-INF/pages/"/>
     <property name="suffix" value=".jsp"/>
   </bean>
+
 
 
 </beans>

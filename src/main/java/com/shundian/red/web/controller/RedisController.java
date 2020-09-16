@@ -28,7 +28,6 @@ public class RedisController {
 		return res.setData(service.listUser());
 	}
 
-
 	@RequestMapping("/addi")
 	public String addInit(){
 		return "add";
