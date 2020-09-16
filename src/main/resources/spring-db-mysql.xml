@@ -9,49 +9,55 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-  <context:property-placeholder location="classpath:mysql.properties"/>
+<!--  <context:property-placeholder location="classpath:mysql.properties"/>-->
+  <!--  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">-->
+  <!--    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+  <!--    <property name="url" value="jdbc:mysql:///test1?characterEncoding=utf-8"/>-->
+  <!--    <property name="username" value="root"/>-->
+  <!--    <property name="password" value="123456"/>-->
+  <!--    <property name="maxActive" value="100"/>-->
+  <!--    <property name="maxIdle" value="30"/>-->
+  <!--    <property name="maxWait" value="1000"/>-->
+  <!--  </bean>-->
 
   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-    <property name="url" value="jdbc:mysql:///test1?characterEncoding=utf-8"/>
-    <property name="username" value="root"/>
-    <property name="password" value="123456"/>
-    <property name="maxActive" value="100"/>
-    <property name="maxIdle" value="30"/>
-    <property name="maxWait" value="1000"/>
+    <property name="driverClassName" value="${mysql.driver}"/>
+    <property name="url" value="${mysql.url}"/>
+    <property name="username" value="${mysql.username}"/>
+    <property name="password" value="${mysql.password}"/>
+    <property name="maxActive" value="${mysql.maxActive}"/>
+    <property name="maxIdle" value="${mysql.maxIdle}"/>
+    <property name="maxWait" value="${mysql.maxWait}"/>
   </bean>
-
-  <!--     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-          <property name="driverClassName" value="${mysql.driver}"/>
-          <property name="url" value="${mysql.url}"/>
-          <property name="username" value="${mysql.username}"/>
-          <property name="password" value="${mysql.password}"/>
-          <property name="maxActive" value="${mysql.maxActive}"/>
-          <property name="maxIdle" value="${mysql.maxIdle}"/>
-          <property name="maxWait" value="${mysql.maxWait}"/>
-      </bean>  -->
 
   <bean class="org.springframework.jdbc.core.JdbcTemplate">
     <property name="dataSource" ref="dataSource"/>
   </bean>
 
-
   <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
     <property name="dataSource" ref="dataSource"/>
   </bean>
 
-  <tx:advice id="txAdvice" transaction-manager="transactionManager">
-    <tx:attributes>
-      <tx:method name="add*" propagation="REQUIRED"/>
-      <tx:method name="update*" propagation="REQUIRED"/>
-      <tx:method name="del*" propagation="REQUIRED"/>
-      <tx:method name="*" read-only="true"/>
-    </tx:attributes>
-  </tx:advice>
+<!--  @Transactional(rollbackFor=Exception.class) //指定回滚,遇到异常Exception时回滚-->
+<!--  @Transactional(noRollbackFor=Exception.class)//指定不回滚,遇到运行期例外(throw new RuntimeException("注释");)会回滚-->
+<!--  @Transactional(readOnly=true) //只读-->
+<!--  @Transactional(timeout=30) //默认是30秒-->
+<!--  @Transactional(propagation=Propagation.REQUIRED) //配置传播-->
+  <tx:annotation-driven transaction-manager="transactionManager" />
+  <!--======= 事务配置 End =================== -->
 
-  <!-- Service, Dao 不声明接口，声明类。必须指明AOP所代理的对象是一个类代理 -->
-  <aop:config proxy-target-class="true">
-    <aop:pointcut expression="execution(* com.shundian.red.web.service.impl.*.*(..))" id="serviceMethod"/>
-    <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod"/>
-  </aop:config>
+<!--  <tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+<!--    <tx:attributes>-->
+<!--      <tx:method name="add*" propagation="REQUIRED"/>-->
+<!--      <tx:method name="update*" propagation="REQUIRED"/>-->
+<!--      <tx:method name="del*" propagation="REQUIRED"/>-->
+<!--      <tx:method name="*" read-only="true"/>-->
+<!--    </tx:attributes>-->
+<!--  </tx:advice>-->
+
+<!--  &lt;!&ndash; Service, Dao 不声明接口，声明类。必须指明AOP所代理的对象是一个类代理 &ndash;&gt;-->
+<!--  <aop:config proxy-target-class="true">-->
+<!--    <aop:pointcut expression="execution(* com.shundian.red.web.service.impl.*.*(..))" id="serviceMethod"/>-->
+<!--    <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod"/>-->
+<!--  </aop:config>-->
 </beans>

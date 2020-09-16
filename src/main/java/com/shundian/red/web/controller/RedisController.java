@@ -1,17 +1,17 @@
-package com.shundian.red.web.action;
+package com.shundian.red.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.shundian.red.lib.Result;
+import com.shundian.red.common.Result;
 import com.shundian.red.web.pojo.UserDto;
 import com.shundian.red.web.service.RedisService;
 
 @Controller
 @RequestMapping("/redis")
-public class RedisAction {
+public class RedisController {
 
 	@Autowired
 	private RedisService service;

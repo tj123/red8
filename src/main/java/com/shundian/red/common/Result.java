@@ -1,4 +1,4 @@
-package com.shundian.red.lib;
+package com.shundian.red.common;
 
 public class Result<T> {
 
