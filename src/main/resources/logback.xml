@@ -17,8 +17,8 @@
 
   <property name="APP_NAME" value="workbench-server"/>
 
-  <springProperty name="LOG_PATH" scope="context" source="log.path" defaultValue="/var/log/workbench"/>
-  <!--<property name="LOG_PATH" value="logs"/>-->
+<!--  <springProperty name="LOG_PATH" scope="context" source="log.path" defaultValue="/var/log/workbench"/>-->
+  <property name="LOG_PATH" value="logs"/>
   <!--<property name="LOG_PATH" value="/var/log/workbench"/>-->
 
   <property name="log.pattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n"/>
