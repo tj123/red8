@@ -35,6 +35,13 @@ public class RedisController {
 		return res.setData(service.listUser());
 	}
 
+    @RequestMapping("/l2")
+    @ResponseBody
+	public Result<?> l2(){
+	    logger.error("hhaha", new Exception("sdgsdg"));
+	    return new Result<>();
+    }
+
 	@RequestMapping("/addi")
 	public String addInit(){
 		return "add";
