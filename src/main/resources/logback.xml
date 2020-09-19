@@ -102,6 +102,7 @@
 
 
   <!--  <logger name="com.cjc.violin" level="error"/>-->
+  <logger name="root" level="trace"/>
   <logger name="com.shundian.red" level="debug"/>
   <!--  <logger name="com.cjc.dev" level="error"/>-->
 

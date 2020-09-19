@@ -20,6 +20,27 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+  <!-- 默认使用 /WEB-INF/mvc-dispatcher-servlet.xml -->
+<!--  <servlet>-->
+<!--    <servlet-name>mvc-dispatcher</servlet-name>-->
+<!--    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
+<!--  </servlet>-->
+
+<!--  <servlet-mapping>-->
+<!--    <servlet-name>mvc-dispatcher</servlet-name>-->
+<!--    <url-pattern>/</url-pattern>-->
+<!--  </servlet-mapping>-->
+
+<!--  默认使用 /WEB-INF/applicationContext.xml-->
+<!--  <listener>-->
+<!--    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+<!--  </listener>-->
+
+<!--  <context-param>-->
+<!--    <param-name>contextConfigLocation</param-name>-->
+<!--    <param-value>classpath:spring-empty.xml</param-value>-->
+<!--  </context-param>-->
+
   <!-- Spring编码过滤器 -->
   <filter>
     <filter-name>Spring_character_encoding_filter</filter-name>
